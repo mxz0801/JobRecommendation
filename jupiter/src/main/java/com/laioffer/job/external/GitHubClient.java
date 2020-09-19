@@ -20,6 +20,8 @@ import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class GitHubClient {
     private static final String URL_TEMPLATE = "https://jobs.github.com/positions.json?description=%s&lat=%s&long=%s";
@@ -57,8 +59,11 @@ public class GitHubClient {
                 }
                 //return EntityUtils.toString(entity);
                 ObjectMapper mapper = new ObjectMapper();
-                Item[] itemArray = mapper.readValue(entity.getContent(), Item[].class);
-                return Arrays.asList(itemArray);
+                //Item[] itemArray = mapper.readValue(entity.getContent(), Item[].class);
+                //return Arrays.asList(itemArray);
+                List<Item> items = Arrays.asList(mapper.readValue(entity.getContent(), Item[].class));
+                extractKeywords(items);
+                return items;
             }
         };
         try {
@@ -69,5 +74,19 @@ public class GitHubClient {
         //return "";
         return Collections.emptyList();
 
+    }
+
+    private void extractKeywords(List<Item> items)
+    {
+        MonkeyLearnClient monkeyLearnClient = new MonkeyLearnClient();
+        List<String> desStrings = items.stream().map(Item::getDescription).collect(Collectors.toList());
+
+        List<Set<String>> keywordList = monkeyLearnClient.extract(desStrings);
+        {
+            for(int i=0;i<items.size();i++)
+            {
+                items.get(i).setKeywords(keywordList.get(i));
+            }
+        }
     }
 }
