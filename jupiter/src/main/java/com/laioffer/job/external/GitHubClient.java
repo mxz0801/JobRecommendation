@@ -62,7 +62,11 @@ public class GitHubClient {
                 //Item[] itemArray = mapper.readValue(entity.getContent(), Item[].class);
                 //return Arrays.asList(itemArray);
                 List<Item> items = Arrays.asList(mapper.readValue(entity.getContent(), Item[].class));
-                extractKeywords(items);
+                if(items.size()>5)
+                {
+                    items = items.subList(0,5);
+                }
+                GitHubClient.this.extractKeywords(items);
                 return items;
             }
         };
