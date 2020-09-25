@@ -17,10 +17,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.net.URLEncoder;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class GitHubClient {
@@ -83,14 +80,27 @@ public class GitHubClient {
     private void extractKeywords(List<Item> items)
     {
         MonkeyLearnClient monkeyLearnClient = new MonkeyLearnClient();
-        List<String> desStrings = items.stream().map(Item::getDescription).collect(Collectors.toList());
 
-        List<Set<String>> keywordList = monkeyLearnClient.extract(desStrings);
+        List<String> desStrings = new ArrayList<>();
+        for(Item item : items)
         {
-            for(int i=0;i<items.size();i++)
-            {
-                items.get(i).setKeywords(keywordList.get(i));
-            }
+            desStrings.add(item.getDescription());
         }
+
+        List<String> titles = new ArrayList<>();
+        for(Item item : items)
+        {
+            titles.add(item.getTitle());
+        }
+        List<Set<String>> keywordList = monkeyLearnClient.extract(desStrings);
+        if(keywordList.isEmpty())
+        {
+            keywordList = monkeyLearnClient.extract(titles);
+        }
+        for(int i=0;i<items.size();i++)
+        {
+            items.get(i).setKeywords(keywordList.get(i));
+        }
+
     }
 }
