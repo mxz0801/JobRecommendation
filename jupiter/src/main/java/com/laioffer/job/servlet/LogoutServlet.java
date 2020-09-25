@@ -29,5 +29,14 @@ public class LogoutServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+
+        ObjectMapper mapper = new ObjectMapper();
+        response.setContentType("application/json");
+        ResultResponse resultResponse = new ResultResponse("OK");
+        mapper.writeValue(response.getWriter(), resultResponse);
     }
 }

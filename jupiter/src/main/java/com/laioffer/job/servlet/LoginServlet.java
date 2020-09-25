@@ -20,6 +20,8 @@ public class LoginServlet extends HttpServlet {
         LoginRequestBody body = mapper.readValue(request.getReader(), LoginRequestBody.class);
         MySQLConnection connection = new MySQLConnection();
         LoginResponseBody loginResponseBody;
+
+
         if (connection.verifyLogin(body.userId, body.password)) {
             HttpSession session = request.getSession();   //create session
             session.setAttribute("user_id", body.userId);
