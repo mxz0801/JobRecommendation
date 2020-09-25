@@ -19,7 +19,7 @@ import java.util.*;
 
 public class MonkeyLearnClient {
     private static final String EXTRACT_URL = "https://api.monkeylearn.com/v3/extractors/ex_YCya9nrn/extract/";
-    private static final String AUTH_TOKEN = "7e0b5ad76f2d2e8f022b79e9606c207352651eb9";
+    private static final String AUTH_TOKEN = "15adbbba425eade9f75d312024d697880ceed172";
 
     public List<Set<String>> extract(List<String> articles)
     {

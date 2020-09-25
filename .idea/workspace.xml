@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="141de2ff-3ad9-471a-8c33-171ede551081" name="Default Changelist" comment="" />
+    <list default="true" id="141de2ff-3ad9-471a-8c33-171ede551081" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -36,6 +41,8 @@
       <updated>1599942477613</updated>
       <workItem from="1599942478672" duration="183000" />
       <workItem from="1599986708338" duration="30000" />
+      <workItem from="1600984326351" duration="135000" />
+      <workItem from="1600984580120" duration="16000" />
     </task>
     <servers />
   </component>
@@ -43,10 +50,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1599986736557">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1600984594730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599986736557" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600984594730" />
     <state x="2660" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599942659101" />
     <state x="2471" y="140" key="new project wizard" timestamp="1599942588505">
       <screen x="1920" y="0" width="1920" height="1040" />
