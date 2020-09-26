@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1 onclick="alert('haha')">Hello Event</h1>
+
+<div></div>
+
+<script>
+    function guess(num, smallerCb, biggerCb, equalCb){
+        var random = Math.floor(Math.random() * 100);
+        console.log(num, random);
+
+        if(num < random){
+            smallerCb();
+            return;
+        }else if(num > random){
+            biggerCb();
+            return;
+        }
+        equalCb();
+    }
+
+    function smaller(){
+        console.log('Your num is too small');
+    }
+
+    function bigger(){
+        console.log('Your num is too bigger');
+    }
+
+    function equal(){
+        console.log('Your guess is right!!');
+    }
+
+    guess(18, smaller, bigger, equal);
+
+</script>
+
+<script>
+    var oDiv = document.getElementsByTagName('div')[0];
+    // oDiv.onclick = function() {
+    //     console.log(1);
+    //     oDiv.style.backgroundColor = 'orange';
+    // }
+
+    // oDiv.onclick = function() {
+    //     console.log(2);
+    //     oDiv.style.backgroundColor = 'blue';
+    // }
+
+    // event + event feedback => core
+
+    // 3 ways click mouseover mouseup/down
+    // method1: ele.onclick = function(){}
+
+    // method2: ele.addEventListener()
+    oDiv.addEventListener('click', function() {
+        console.log('clicked 1')
+    }, false)
+
+    oDiv.addEventListener('click', function() {
+        console.log('clicked 2')
+    }, false)
+
+</script>
+</body>
+</html>
