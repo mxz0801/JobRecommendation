@@ -5,18 +5,49 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Hello DOM + BOM</h1>
+<!--    <h1>Hello DOM + BOM</h1>-->
 
-    <div id="box">
-        <p>this is p</p>
-    </div>
+<!--    <div id="box">-->
+<!--        <p>this is p</p>-->
+<!--    </div>-->
 
-<ul class="list">
-    <li class="item">1</li>
-    <li>2</li>
+<!--<ul class="list">-->
+<!--    <li class="item">1</li>-->
+<!--    <li>2</li>-->
+<!--</ul>-->
+<h2>The fruits we provide are: </h2>
+<hr>
+<ul id="box">
+    <li>156165165165</li>
+    <li>wefewafewafewaf</li>
+
 </ul>
 
-    <hr>
+<hr>
+<script>
+    var arr = ['apple', 'pear', 'berry'];
+
+    var oUl = document.getElementById('box');
+    var str = '';
+
+    console.log(arr.length);
+    for(var i=0;i<arr.length;i++)
+    {
+        //method 1: api
+        // var oLi = document.createElement("li");
+        // oLi.className="item";
+        // oLi.id=arr[i];
+        // oLi.innerHTML = arr[i];
+        // oUl.insertBefore(oLi,oUl.getElementsByTagName("li")[1]);
+
+        str += "<li>" + arr[i] +"</li>";
+
+    }
+    oUl.innerHTML = str;
+    console.log(oUl);
+
+</script>
+
 
 <!--    <ul id="ul">-->
 <!--        <li>1</li>-->
@@ -36,22 +67,24 @@
 <!--    </ul>-->
 
     <script>
-        //BOM
-        if(window.navigator.geolocation)
-        {
-            navigator.geolocation.getCurrentPosition(successCb, errCb,{maximumAge:1000});
-        }
-
-        function successCb(position)
-        {
-            console.log(position);
-        }
-        function errCb(err)
-        {
-            console.log(err);
-        }
+        // //BOM
+        // if(window.navigator.geolocation)
+        // {
+        //     navigator.geolocation.getCurrentPosition(successCb, errCb,{maximumAge:1000});
+        // }
+        //
+        // function successCb(position)
+        // {
+        //     console.log(position);
+        // }
+        // function errCb(err)
+        // {
+        //     console.log(err);
+        // }
     </script>
-    <script>
+
+
+<script>
         // var oUl = document.getElementById("ul");
         // oUl.className = "box";
         // oUl.className +=" list";
