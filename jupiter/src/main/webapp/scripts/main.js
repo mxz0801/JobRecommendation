@@ -117,15 +117,7 @@
         // css --> display
         ele.style.display = style;
     }
-
-
-
-
     //data manager
-
-
-
     init();
-
 })()
 
