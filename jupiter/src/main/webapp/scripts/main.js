@@ -33,11 +33,13 @@
     function init(){
         console.log("init");
         //validation section  -->after ajax
+        validateSession();
         //persistent login
         //to show login form
 
 
         //bind events
+        bindEvent();
 
     }
 
@@ -57,7 +59,10 @@
 
     function bindEvent(){
         oRegisterFormBtn.addEventListener('click',function (){
-            console.log('click register');
+            console.log('click register0');
+            switchLoginRegister('register');
+
+
             showOrHideElement(oAvatar,'none');
             showOrHideElement(oWelcomeMsg,'none');
             showOrHideElement(oLogoutBtn,'none');
@@ -69,6 +74,12 @@
 
             showOrHideElement(oRegisterForm,'block');
 
+        },false)
+
+        oLoginFormBtn.addEventListener('click',function (){
+            console.log('click login');
+
+            switchLoginRegister('login');
         },false)
     }
 
@@ -83,19 +94,22 @@
         //case 1: name == login
         if(name ==='login'){
             //hide register
-
+            showOrHideElement(oRegisterForm,'none');
             //clear register error
-
+            oRegisterResultField.innerHTML="";
             //show login
+            showOrHideElement(oLoginForm,'block');
         }else{
             //case 2: name == register
-
+            if(name ==='register'){
             //hide login
-
+            showOrHideElement(oLoginForm,'none');
             //clear login err msg
-
+            oLoginErrorField.innerText='';
             //show register
+            showOrHideElement(oRegisterForm,'block');
 
+            }
         }
     }
 
@@ -112,7 +126,6 @@
 
 
     init();
-    validateSession();
-    bindEvent();
+
 })()
 
