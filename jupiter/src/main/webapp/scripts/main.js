@@ -28,8 +28,8 @@
 
         userId = '1111',
         userFullName = 'John',
-        lng = -122,
-        lat = 47;
+        lng = -74.0060,
+        lat = 40.7128;
 
     //entry fn - init fn
 
@@ -88,6 +88,9 @@
         //click login
         oLoginBtn.addEventListener('click',loginExecutor,
             false);
+
+        //click item btn
+        oItemList.addEventListener('click', changeFavoriteItem,false);
     }
     function loginExecutor(){
         var username = oLoginUsername.value;
@@ -120,6 +123,24 @@
                 throw new Error("Invalid username or password");
             }
         })
+    }
+
+    //change favorite
+    function changeFavoriteItem(evt){
+        //console.log(evt.target);
+        var tar = evt.target;
+        var oParnet = tar.parentElement;
+
+        if(oParnet && oParnet.className ==='fav-link'){
+            //find it
+            var oCurLi= oParnet.parentElement,
+                classname = tar.className,
+                isFavorite = classname ==='fa fa heart' ? true:false,
+                oItems = oItemList.getElementsByClassName('item'),
+                index = Array.prototype.indexOf.call(oItems,oCurLi);
+
+            console.log(index);
+        }
     }
 
     function fetchData(){
