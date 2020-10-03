@@ -186,10 +186,20 @@
 
         for(var i = 0 ;i<len;i++){
             item = data[i];
-            oTpl.replace(/{{(.*?)}}/g, function (node,key){
-
+            list += oTpl.replace(/{{(.*?)}}/g, function (node,key){
+                if (key === 'company_log'){
+                    return item[key] ||'https://via.placeholder.com/100';
+                }
+                if (key === 'location') {
+                    return item[key].replace(/,/g, '<br/>').replace(/\"/g, '');
+                }
+                if (key === 'favorite') {
+                    return item[key] ? "fa fa-heart" : "fa fa-heart-o";
+                }
+                return item[key];
             })
         }
+        oItemList.innerHTML = list;
     }
     function activeBtn(btnId){
         var len = oNavBtnList.length;
