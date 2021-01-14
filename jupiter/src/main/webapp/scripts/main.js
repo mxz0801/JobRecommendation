@@ -28,8 +28,8 @@
 
         userId = '1111',
         userFullName = 'John',
-        lng = -74.0060,
-        lat = 40.7128;
+        lng = -122.419416,
+        lat = 37.774929;
 
     //entry fn - init fn
 
